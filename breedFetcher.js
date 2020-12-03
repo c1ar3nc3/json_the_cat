@@ -4,7 +4,7 @@ const request = require('request');
 
 const options = process.argv[2];
 
-const breedfetcher = (options, callback) => {
+const fetchBreedDescription = function(breedName, callback) {
   request(`https://api.thecatapi.com/v1/breeds/search?q=${options}`, (err, response, body) => {
     const data = JSON.parse(body);
     if (err) {
@@ -18,4 +18,4 @@ const breedfetcher = (options, callback) => {
   });
 };
 
-breedfetcher("Siberian");
+module.exports = fetchBreedDescription;
